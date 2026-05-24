@@ -254,7 +254,7 @@ window.addEventListener('scroll', () => {
 
   let activeStep = 0;
   let lastStep   = performance.now();
-  const STEP_MS  = 3000;
+  const STEP_MS  = 6000;
   // pulse animation per node
   const pulseR   = nodes.map(() => 0);
   const pulseA   = nodes.map(() => 0);
