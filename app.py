@@ -39,6 +39,7 @@ class Contact(db.Model):
     id             = db.Column(db.Integer, primary_key=True)
     name           = db.Column(db.String(100), nullable=False)
     email          = db.Column(db.String(120), nullable=False)
+    phone          = db.Column(db.String(20))
     business       = db.Column(db.String(120))
     service        = db.Column(db.String(120))
     message        = db.Column(db.Text)
@@ -63,6 +64,7 @@ def contact():
     new_contact = Contact(
         name=data.get('name'),
         email=data.get('email'),
+        phone=data.get('phone'),
         business=data.get('business'),
         service=data.get('service'),
         message=data.get('message')

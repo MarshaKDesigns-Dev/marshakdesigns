@@ -367,6 +367,7 @@ function handleSubmit(e) {
   const data = {
     name:     form.querySelector('[name="name"]').value,
     email:    form.querySelector('[name="email"]').value,
+    phone:    form.querySelector('[name="phone"]').value,
     business: form.querySelector('[name="business"]').value,
     service:  form.querySelector('[name="service"]').value,
     message:  form.querySelector('[name="message"]').value,
