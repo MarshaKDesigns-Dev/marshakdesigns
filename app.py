@@ -115,6 +115,10 @@ def robots():
     from flask import send_from_directory
     return send_from_directory('static', 'robots.txt')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
