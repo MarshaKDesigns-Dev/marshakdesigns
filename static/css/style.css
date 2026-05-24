@@ -330,10 +330,13 @@ nav {
 .proj-card h3 { font-size: 16px; font-weight: 700; color: #021B33; margin-bottom: 6px; font-family: 'Syne', sans-serif; }
 .proj-card p { font-size: 13px; color: #4a6080; line-height: 1.6; margin-bottom: 12px; }
 .proj-link {
-  font-size: 13px; color: var(--blue); font-family: 'Syne', sans-serif;
-  font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
-  transition: gap 0.2s;
+  font-size: 15px; color: var(--blue-bright); font-family: 'Syne', sans-serif;
+  font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+  transition: all 0.2s; margin-top: 1rem;
 }
+.proj-link:hover { gap: 8px; color: var(--blue); transform: translateX(3px);
+}
+.proj-link:hover { gap: 8px; color: var(--blue); transform: translateX(3px); }
 .proj-link:hover { gap: 8px; }
 .proj-techs { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
 .proj-tech { font-size: 11px; padding: 2px 8px; background: #f0f4f8; color: #4a6080; border-radius: 4px; }
