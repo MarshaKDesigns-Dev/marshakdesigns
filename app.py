@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for, f
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 from flask_mail import Mail, Message
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import check_password_hash
 from datetime import datetime
 import os
 from dotenv import load_dotenv
@@ -15,6 +15,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///marshakdesigns.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+# Fail fast if SECRET_KEY is missing
+if not app.config['SECRET_KEY']:
+    raise ValueError("SECRET_KEY is missing. Add it to your .env file.")
 
 # Mail configuration
 app.config['MAIL_SERVER']   = 'smtp.gmail.com'
@@ -76,6 +80,12 @@ def contact():
             'message': 'Name and email are required.'
         }), 400
 
+    if '@' not in data.get('email', ''):
+        return jsonify({
+            'success': False,
+            'message': 'Please enter a valid email address.'
+        }), 400
+
     new_contact = Contact(
         name=data.get('name'),
         email=data.get('email'),
@@ -87,19 +97,21 @@ def contact():
     db.session.add(new_contact)
     db.session.commit()
 
-    try:
-        msg = Message(
-            subject='New Contact',
-            sender=os.getenv('MAIL_USERNAME'),
-            recipients=[os.getenv('SMS_RECIPIENT')]
-        )
-        msg.body = (
-            f"marshakdesigns.com: New inquiry from {data.get('name')} - "
-            f"{data.get('email')}. Login at marshakdesigns.com/admin/contacts to view."
-        )
-        mail.send(msg)
-    except Exception as e:
-        print(f'SMS notification failed: {e}')
+    sms_recipient = os.getenv('SMS_RECIPIENT')
+    if sms_recipient:
+        try:
+            msg = Message(
+                subject='New Contact',
+                sender=os.getenv('MAIL_USERNAME'),
+                recipients=[sms_recipient]
+            )
+            msg.body = (
+                f"marshakdesigns.com: New inquiry from {data.get('name')} - "
+                f"{data.get('email')}. Login at marshakdesigns.com/admin/contacts to view."
+            )
+            mail.send(msg)
+        except Exception as e:
+            print(f'Notification failed: {e}')
 
     return jsonify({'success': True, 'message': 'Message received!'})
 
@@ -131,5 +143,6 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         if not Admin.query.first():
-            print('No admin found. Create one using the update script.')
-    app.run(debug=True)
+            print('No admin found. Create one using create_admin.py')
+    debug_mode = os.getenv('FLASK_DEBUG', 'False') == 'True'
+    app.run(debug=debug_mode)
