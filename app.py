@@ -129,28 +129,31 @@ def contact():
 
     sms_recipient = os.getenv('SMS_RECIPIENT')
     
-    try:
-        msg = Message(
-            subject='New Contact - MarshaK Designs',
-            recipients=['marshakdesigns@gmail.com']
-        )
+    # Email notifications temporarily disabled until production email provider is configured
+    print(f"New contact submission received from {name} ({email})")
+    
+    # try:
+    #     msg = Message(
+    #         subject='New Contact - MarshaK Designs',
+    #         recipients=['marshakdesigns@gmail.com']
+    #     )
 
-        msg.body = (
-            f"New website inquiry received.\n\n"
-            f"Name: {name}\n"
-            f"Email: {email}\n"
-            f"Phone: {phone}\n"
-            f"Business: {business}\n"
-            f"Service: {service}\n\n"
-            f"Message:\n{message}\n\n"
-            f"View all leads:\n"
-            f"https://web-production-97833.up.railway.app/admin/contacts"
-        )
+    #     msg.body = (
+    #         f"New website inquiry received.\n\n"
+    #         f"Name: {name}\n"
+    #         f"Email: {email}\n"
+    #         f"Phone: {phone}\n"
+    #         f"Business: {business}\n"
+    #         f"Service: {service}\n\n"
+    #         f"Message:\n{message}\n\n"
+    #         f"View all leads:\n"
+    #         f"https://web-production-97833.up.railway.app/admin/contacts"
+    #     )
 
-        mail.send(msg)
+    #     mail.send(msg)
 
-    except Exception as e:
-        print(f'Notification failed: {e}')
+    # except Exception as e:
+    #     print(f'Notification failed: {e}')
         
 
     return jsonify({
