@@ -447,20 +447,23 @@ if (lightbox) {
     clearInterval(shuffleTimer);
     clearTimeout(expandTimer);
 
-    // expand the clicked card
     card.style.transform = 'translateX(0px) rotate(0deg) scale(1.05)';
     card.style.zIndex = 10;
     card.style.opacity = 1;
     card.style.boxShadow = '0 0 60px rgba(55,138,221,0.4)';
 
-    // collapse back after 10 seconds and resume shuffle
     expandTimer = setTimeout(() => {
       card.style.boxShadow = '';
       applyPositions(activeCard);
-      shuffleTimer = setInterval(() => {
-        applyPositions((activeCard + 1) % 3);
-      }, 4000);
+      startShuffle();
     }, 10000);
+  }
+
+  function startShuffle() {
+    clearInterval(shuffleTimer);
+    shuffleTimer = setInterval(() => {
+      if (!expanded) applyPositions((activeCard + 1) % 3);
+    }, 4000);
   }
 
   // click to expand
@@ -470,43 +473,32 @@ if (lightbox) {
     });
   });
 
-  // swipe to advance
+  // swipe to advance — mobile only
   let touchStartX = 0;
-  let touchEndX = 0;
-
   const stack = document.getElementById('pricingStack');
   if (stack) {
     stack.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
+      clearInterval(shuffleTimer);
     }, { passive: true });
 
     stack.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) {
-        // swiped left — advance
-        clearInterval(shuffleTimer);
-        applyPositions((activeCard + 1) % 3);
-        shuffleTimer = setInterval(() => {
-          if (!expanded) applyPositions((activeCard + 1) % 3);
-        }, 4000);
-      } else if (touchEndX - touchStartX > 50) {
-        // swiped right — go back
-        clearInterval(shuffleTimer);
-        applyPositions((activeCard + 2) % 3);
-        shuffleTimer = setInterval(() => {
-          if (!expanded) applyPositions((activeCard + 1) % 3);
-        }, 4000);
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        expanded = false;
+        if (diff > 0) {
+          applyPositions((activeCard + 1) % 3);
+        } else {
+          applyPositions((activeCard + 2) % 3);
+        }
       }
+      setTimeout(startShuffle, 6000);
     }, { passive: true });
   }
 
-  // start auto shuffle
   applyPositions(0);
-  shuffleTimer = setInterval(() => {
-    if (!expanded) applyPositions((activeCard + 1) % 3);
-  }, 4000);
+  startShuffle();
 })();
-
 // ── HAMBURGER MENU ──
 function toggleMenu() {
   const nav = document.getElementById('navLinks');
