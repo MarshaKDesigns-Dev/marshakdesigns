@@ -1115,17 +1115,17 @@ footer {
 }
 
 .investment-card.featured {
-  border-color: rgba(55,138,221,0.45);
-  box-shadow: 0 0 40px rgba(55,138,221,0.15);
+  border-color: rgba(55, 138, 221, 0.45);
+  box-shadow: 0 0 40px rgba(55, 138, 221, 0.15);
 }
 
 .price-badge {
-  display: inline-block;
+  position: absolute;
+  bottom: 1.75rem;
+  right: 1.75rem;
 
-  background: rgba(55, 138, 221, 0.15);
-  border: 1px solid rgba(55, 138, 221, 0.3);
-
-  color: var(--blue-pale);
+  background: var(--blue-bright);
+  color: var(--white);
 
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
@@ -1135,7 +1135,7 @@ footer {
   font-weight: 700;
   letter-spacing: 0.02em;
 
-  margin-bottom: 1rem;
+  opacity: 0.95;
 }
 
 .price-tag {
@@ -1184,29 +1184,6 @@ footer {
   color: var(--teal-light);
   font-weight: 700;
   margin-right: 10px;
-}
-
-.price-cta {
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-
-  padding: 14px 20px;
-
-  background: var(--blue-bright);
-  color: var(--white);
-
-  font-family: "Syne", sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.price-cta:hover {
-  transform: translateY(-2px);
-  background: #2778c4;
 }
 
 /* maintenance banner */
