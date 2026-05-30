@@ -721,7 +721,7 @@ nav {
   height: 64px;
   border-radius: 50%;
   background: rgba(55, 138, 221, 0.12);
-  border: 1px solid rgba(55, 138, 221, 0.3);
+  border: 1px solid rgba(125, 223, 184);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -729,6 +729,12 @@ nav {
   font-size: 26px;
   transition: all 0.3s;
   cursor: default;
+}
+.step-circle svg {
+  width: 28px;
+  height: 28px;
+  stroke: #7DDFB8;
+  stroke-width: 1.8;
 }
 .process-step:hover .step-circle {
   background: rgba(55, 138, 221, 0.25);
