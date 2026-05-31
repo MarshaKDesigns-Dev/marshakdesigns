@@ -1188,7 +1188,8 @@ footer {
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   width: 280px; height: 280px;
   background: rgba(2,27,51,0.92);
   border-radius: 50%;

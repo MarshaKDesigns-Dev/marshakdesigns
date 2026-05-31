@@ -1,46 +1,96 @@
 (function () {
-  const services = [
-    {
-      icon: 'globe',
-      title: "Business Websites",
-      desc: 'Custom, branded websites designed to present your business clearly, build trust, and convert visitors into leads.',
-    },
-    {
-      icon: 'layout-dashboard',
-      title: "Client & Admin Portals",
-      desc: 'Centralized dashboards that help manage clients, workflows, communication, and daily business operations.',
-    },
-    {
-      icon: 'workflow',
-      title: "Workflow Automation",
-      desc: 'Streamline repetitive business processes with systems that automate tracking, notifications, approvals, and operational tasks.',
-    },
-    {
-      icon: 'bot',
-      title: 'Business Automation',
-      desc: 'Reduce manual work and improve efficiency with automated systems that handle repetitive tasks and operational workflows.',
-    },
-    {
-      icon: 'rocket',
-      title: "Onboarding Workflows",
-      desc: 'Structured onboarding systems that guide clients, members, or staff through organized digital workflows from day one.',
-    },
-    {
-      icon: 'users',
-      title: 'Customer Management', 
-      desc: 'Custom client management systems designed to organize communication, customer activity, scheduling, and day-to-day operations.',
-    },
-    {
-      icon: 'credit-card',
-      title: 'Scheduling & Payments',
-      desc: 'Integrated booking, scheduling, and payment systems designed to simplify operations for both businesses and customers.',
-    },
-    {
-      icon: 'sparkles',
-      title: 'Digital Brand Experiences',
-      desc: 'Professionally designed digital experiences that strengthen brand identity, improve engagement, and create a polished customer presence.',
-    },
-  ];
+const services = [
+  {
+    icon: 'globe',
+    title: "Business Websites",
+    desc: 'Custom, branded websites designed to present your business clearly, build trust, and convert visitors into leads.',
+    modal: {
+      problem: "Your website is often the first impression potential customers have of your business. Outdated designs, generic templates, and poor mobile experiences can make it harder to earn trust and generate leads.",
+      solution: "I build custom, mobile-responsive websites designed around your brand, goals, and customer journey — not a one-size-fits-all template.",
+      includes: ["Custom design", "Mobile responsiveness", "Lead capture forms", "SEO foundation", "Google indexing", "Analytics integration"],
+      thisIsForYou: ["Your current website is outdated or difficult to update", "Most of your business comes from referrals", "Customers ask questions that should be answered on your website", "You need a more professional online presence"]
+    }
+  },
+  {
+    icon: 'layout-dashboard',
+    title: "Client & Admin Portals",
+    desc: 'Centralized dashboards that help manage clients, workflows, communication, and daily business operations.',
+    modal: {
+      problem: "Many businesses rely on spreadsheets, email threads, and disconnected tools to manage clients, projects, and daily operations.",
+      solution: "A centralized dashboard gives you one place to manage information, track progress, communicate, and stay organized.",
+      includes: ["Client dashboards", "Admin management tools", "User logins", "Task tracking", "Document management", "Status reporting"],
+      thisIsForYou: ["You're managing information in spreadsheets", "Clients regularly ask for status updates", "Team members need access to the same information", "You're juggling emails, documents, and notes across multiple places"]
+    }
+  },
+  {
+    icon: 'workflow',
+    title: "Workflow Automation",
+    desc: 'Streamline repetitive business processes with systems that automate tracking, notifications, approvals, and operational tasks.',
+    modal: {
+      problem: "Repetitive administrative tasks consume valuable time and increase the likelihood of mistakes and missed follow-ups.",
+      solution: "Workflow automation keeps processes moving automatically so your team can focus on higher-value work.",
+      includes: ["Approval workflows", "Automated reminders", "Status tracking", "Follow-up sequences", "Notifications", "Process management"],
+      thisIsForYou: ["The same tasks are repeated every day or every week", "Employees spend time updating spreadsheets manually", "Important follow-ups are sometimes forgotten", "Processes slow down because someone has to manually move things forward"]
+    }
+  },
+  {
+    icon: 'bot',
+    title: 'Business Automation',
+    desc: 'Reduce manual work and improve efficiency with automated systems that handle repetitive tasks and operational workflows.',
+    modal: {
+      problem: "As businesses grow, manual processes become harder to manage consistently and reliably.",
+      solution: "Business automation creates systems that operate behind the scenes to improve consistency, reduce errors, and streamline operations.",
+      includes: ["Data processing", "Automated communications", "System integrations", "Business rule automation", "Reporting workflows", "Operational triggers"],
+      thisIsForYou: ["Growth is creating more administrative work", "Your team spends too much time on repetitive tasks", "Human error is causing inconsistencies", "You're doing work that software could handle automatically"]
+    }
+  },
+  {
+    icon: 'rocket',
+    title: "Onboarding Workflows",
+    desc: 'Structured onboarding systems that guide clients, members, or staff through organized digital workflows from day one.',
+    modal: {
+      problem: "New clients, members, or employees often receive inconsistent onboarding experiences that create confusion and unnecessary support requests.",
+      solution: "Structured onboarding workflows guide people through the right information at the right time.",
+      includes: ["Welcome sequences", "Digital forms", "Task completion tracking", "Training materials", "Automated communications", "Progress monitoring"],
+      thisIsForYou: ["New clients frequently ask the same questions", "Onboarding looks different every time", "Important documents or forms are sometimes missed", "You want a more professional first impression"]
+    }
+  },
+  {
+    icon: 'users',
+    title: 'Customer Management',
+    desc: 'Custom client management systems designed to organize communication, customer activity, scheduling, and day-to-day operations.',
+    modal: {
+      problem: "Customer information is often scattered across emails, spreadsheets, notes, and multiple systems.",
+      solution: "A custom customer management system keeps everything organized and accessible in one place.",
+      includes: ["Customer profiles", "Communication history", "Activity tracking", "Follow-up management", "Scheduling tools", "Relationship management"],
+      thisIsForYou: ["Customer information is scattered across multiple systems", "You struggle to remember past conversations", "Follow-ups occasionally fall through the cracks", "You need a better way to manage customer relationships"]
+    }
+  },
+  {
+    icon: 'credit-card',
+    title: 'Scheduling & Payments',
+    desc: 'Integrated booking, scheduling, and payment systems designed to simplify operations for both businesses and customers.',
+    modal: {
+      problem: "Manual scheduling, appointment coordination, and payment collection can create unnecessary back-and-forth communication.",
+      solution: "Integrated booking and payment systems simplify the process for both your business and your customers.",
+      includes: ["Online scheduling", "Appointment management", "Deposit collection", "Payment processing", "Confirmation workflows", "Reminder notifications"],
+      thisIsForYou: ["Scheduling appointments requires multiple emails or texts", "Customers frequently miss appointments", "You spend time manually collecting payments", "You need deposits, confirmations, and reminders to happen automatically"]
+    }
+  },
+  {
+    icon: 'sparkles',
+    title: 'Digital Brand Experiences',
+    desc: 'Professionally designed digital experiences that strengthen brand identity, improve engagement, and create a polished customer presence.',
+    modal: {
+      problem: "Generic digital experiences often fail to communicate what makes a business unique.",
+      solution: "Custom digital experiences help your brand stand out while creating memorable interactions for your audience.",
+      includes: ["Landing pages", "Interactive experiences", "Branded customer portals", "Event websites", "Marketing microsites", "Custom user experiences"],
+      thisIsForYou: ["Your online presence doesn't reflect the quality of your business", "Your brand feels inconsistent across platforms", "You need something more memorable than a template website", "You want customers to have a premium experience from the first interaction"]
+    }
+  }
+];
+
+window._globeServices = services;
 
   const canvas = document.getElementById("globeCanvas");
   if (!canvas) return;
@@ -49,7 +99,7 @@
   const gcTitle = document.getElementById("gcTitle");
   const gcDesc = document.getElementById("gcDesc");
 
-  const N = services.length;
+const N = services.length;
   let W, H, cx, cy, R;
 
   function resize() {
@@ -63,18 +113,27 @@
   resize();
   window.addEventListener("resize", resize);
 
-  // Each point has its OWN elliptical orbit with unique tilt, size, and speed.
-  // This gives the "imaginary orbit" feel — each one traces its own path.
-  // Timing is controlled separately: every 7s the activeIdx advances,
-  // and whichever point is active gets highlighted right where it is.
-
   const STEP_MS = 7000;
   let activeIdx = 0;
   let highlightIdx = -1;
   let lastStep = performance.now();
   let lastFrame = performance.now();
 
-  // Each point has its own elliptical orbit with unique tilt, size, and speed
+  const globeCenter = document.querySelector('.globe-center');
+  if (globeCenter) {
+    globeCenter.style.cursor = 'pointer';
+    globeCenter.style.pointerEvents = 'auto';
+    globeCenter.addEventListener('click', () => {
+      const idx = highlightIdx < 0 ? 0 : highlightIdx;
+      const service = services[idx];
+      if (service && service.modal) {
+        openServiceModal(service);
+      }
+    });
+  }
+
+  
+
   const orbits = services.map((_, i) => ({
     rx: R * (0.72 + (i % 3) * 0.1),
     ry: R * (0.28 + (i % 4) * 0.07),
@@ -514,4 +573,84 @@ document.querySelectorAll("#navLinks a").forEach((link) => {
     document.getElementById("navLinks").classList.remove("open");
     document.getElementById("hamburger").classList.remove("open");
   });
+});
+// ── SERVICE MODAL ──
+let currentServiceIdx = 0;
+
+function openServiceModal(service) {
+  const modal = document.getElementById('serviceModal');
+  const body = document.getElementById('serviceModalBody');
+  const services = window._globeServices || [];
+  currentServiceIdx = services.indexOf(service);
+  if (currentServiceIdx < 0) currentServiceIdx = 0;
+
+body.innerHTML = `
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-family:'Syne',sans-serif; font-size:14px; font-weight:800; color:var(--blue-bright); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">What I Do</div>
+      <h2 style="font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--white); margin-bottom:0;">${service.title}</h2>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-family:'Syne',sans-serif; font-size:12px; font-weight:700; color:var(--teal-light); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">The Challenge</div>
+      <p style="font-size:15px; color:var(--blue-ghost); line-height:1.75; font-weight:300;">${service.modal.problem}</p>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-family:'Syne',sans-serif; font-size:12px; font-weight:700; color:var(--teal-light); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">How It Helps</div>
+      <p style="font-size:15px; color:var(--blue-ghost); line-height:1.75; font-weight:300;">${service.modal.solution}</p>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-family:'Syne',sans-serif; font-size:12px; font-weight:700; color:var(--teal-light); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem;">What It Can Include</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+        ${service.modal.includes.map(item => `
+          <div style="font-size:14px; color:var(--white); display:flex; align-items:center; gap:8px;">
+            <span style="color:var(--white); font-size:18px; font-weight:700;">•</span> ${item}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div style="margin-bottom:2rem;">
+      <div style="font-family:'Syne',sans-serif; font-size:12px; font-weight:700; color:var(--teal-light); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem;">This Might Be For You If...</div>
+      <div style="display:flex; flex-direction:column; gap:0.25rem;">
+        ${service.modal.thisIsForYou.map(item => `
+          <div style="font-size:14px; color:var(--white); display:flex; align-items:center; gap:8px;">
+            <span style="color:var(--white); font-size:18px; font-weight:700;">•</span> ${item}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(55,138,221,0.2); padding-top:1.5rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+        <button onclick="navigateServiceModal(-1)" style="background:rgba(29,158,117,0.15); border:1px solid rgba(93,202,165,0.4); color:var(--teal-light); padding:8px 16px; border-radius:8px; cursor:pointer; font-family:'Syne',sans-serif; font-size:13px;">← Previous</button>
+        <span style="font-size:12px; color:var(--blue-pale);">${currentServiceIdx + 1} of ${services.length}</span>
+        <button onclick="navigateServiceModal(1)" style="background:rgba(29,158,117,0.15); border:1px solid rgba(93,202,165,0.4); color:var(--teal-light); padding:8px 16px; border-radius:8px; cursor:pointer; font-family:'Syne',sans-serif; font-size:13px;">Next →</button>
+      </div>
+      <p style="font-size:14px; color:var(--blue-ghost); margin-bottom:1rem; font-style:italic; text-align:center;">Not sure which solution fits your business? Let's start with a conversation about what's slowing your business down.</p>
+      <div style="text-align:center;">
+        <button class="btn-primary" onclick="closeServiceModal(); document.getElementById('contact').scrollIntoView({behavior:'smooth'});" style="margin:0 auto;">
+          Let's talk →
+        </button>
+      </div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  const modalContent = document.getElementById('serviceModalContent');
+  if (modalContent) modalContent.scrollTop = 0;
+}
+
+function closeServiceModal() {
+  document.getElementById('serviceModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function navigateServiceModal(direction) {
+  const services = window._globeServices;
+  if (!services) return;
+  currentServiceIdx = (currentServiceIdx + direction + services.length) % services.length;
+  openServiceModal(services[currentServiceIdx]);
+}
+
+// close on background click
+document.getElementById('serviceModal').addEventListener('click', function(e) {
+  if (e.target === this) closeServiceModal();
 });
