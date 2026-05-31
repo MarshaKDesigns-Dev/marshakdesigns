@@ -1397,6 +1397,24 @@ footer {
 .hamburger {
   display: none;
 }
+.step-expand {
+  display: none;
+  margin-top: 1rem;
+  font-size: 13px;
+  color: var(--blue-ghost);
+  line-height: 1.7;
+  text-align: left;
+  border-top: 1px solid rgba(55,138,221,0.15);
+  padding-top: 1rem;
+}
+
+.step-expand.open {
+  display: block;
+}
+
+.process-step {
+  cursor: pointer;
+}
 
 /* mobile */
 @media (max-width: 768px) {

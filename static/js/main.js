@@ -654,3 +654,21 @@ function navigateServiceModal(direction) {
 document.getElementById('serviceModal').addEventListener('click', function(e) {
   if (e.target === this) closeServiceModal();
 });
+
+// ── PROCESS STEPS ──
+function toggleStep(index) {
+  const expand = document.getElementById('step-expand-' + index);
+  if (!expand) return;
+  const isOpen = expand.classList.contains('open');
+  
+  // close all steps first
+  for (let i = 0; i < 4; i++) {
+    const el = document.getElementById('step-expand-' + i);
+    if (el) el.classList.remove('open');
+  }
+  
+  // open clicked step if it wasn't already open
+  if (!isOpen) {
+    expand.classList.add('open');
+  }
+}
