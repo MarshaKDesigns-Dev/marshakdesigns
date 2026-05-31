@@ -1199,8 +1199,21 @@ footer {
   backdrop-filter: blur(6px);
   transition: all 0.4s ease;
   z-index: 2;
+  overflow: visible;
+}
+.globe-center::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(93,202,165,0.5);
+  animation: globePulse 2s ease-in-out infinite;
 }
 
+@keyframes globePulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.06); opacity: 0.9; }
+}
 .gc-icon {
   line-height: 1;
   margin-bottom: 0.5rem;
@@ -1236,6 +1249,28 @@ footer {
   max-width: 90%; 
   margin: 0 auto; 
 }
+
+.globe-hint {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--teal-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: hintPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
 /* ── INVESTMENT / PRICING ── */
 
 .pricing-grid {
@@ -1494,4 +1529,16 @@ footer {
   .pain-highlight { font-size: 28px; line-height: 1.25; }
   .pain-points { padding-left: 1.5rem; padding-right: 1.5rem; overflow: hidden; }
   .pain-points p, .pain-highlight { max-width: 100%; white-space: normal !important; word-break: normal; overflow-wrap: break-word; }
+}
+.step-chevron {
+  font-size: 10px;
+  color: var(--blue-bright);
+  margin-left: 6px;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.step-expand.open ~ h3 .step-chevron,
+.process-step.open .step-chevron {
+  transform: rotate(180deg);
 }
