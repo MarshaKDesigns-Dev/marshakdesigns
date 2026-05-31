@@ -660,15 +660,17 @@ function toggleStep(index) {
   const expand = document.getElementById('step-expand-' + index);
   if (!expand) return;
   const isOpen = expand.classList.contains('open');
-  
-  // close all steps first
+
   for (let i = 0; i < 4; i++) {
     const el = document.getElementById('step-expand-' + i);
+    const chevron = document.getElementById('step-chevron-' + i);
     if (el) el.classList.remove('open');
+    if (chevron) chevron.style.transform = 'rotate(0deg)';
   }
-  
-  // open clicked step if it wasn't already open
+
   if (!isOpen) {
     expand.classList.add('open');
+    const chevron = document.getElementById('step-chevron-' + index);
+    if (chevron) chevron.style.transform = 'rotate(180deg)';
   }
 }
