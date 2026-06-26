@@ -309,7 +309,7 @@ nav {
 
 /* dashboard preview */
 .hero-right {
-  flex: 0 0 480px;
+  flex: 0 0 600px;
   animation: fadeSlideUp 0.7s 0.2s ease both;
 }
 
@@ -1487,10 +1487,14 @@ footer {
     margin-bottom: 1.5rem; /* Add space below image */
   }
 
-  .hero-right video {
-    height: 180px !important;
+  .hero-video {
     width: 100%;
-    object-fit: cover;
+    height: 420px !important;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(55, 138, 221, 0.25);
   }
   .hero-btns { margin-bottom: 0.5rem; }
 
@@ -1567,4 +1571,14 @@ footer {
 .step-expand.open ~ h3 .step-chevron,
 .process-step.open .step-chevron {
   transform: rotate(180deg);
+}
+
+.hero-video {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(55, 138, 221, 0.25);
 }
