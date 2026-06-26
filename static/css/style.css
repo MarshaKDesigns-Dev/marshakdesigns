@@ -309,7 +309,7 @@ nav {
 
 /* dashboard preview */
 .hero-right {
-  flex: 0 0 320px;
+  flex: 0 0 480px;
   animation: fadeSlideUp 0.7s 0.2s ease both;
 }
 
@@ -1451,7 +1451,6 @@ footer {
   cursor: pointer;
 }
 
-/* mobile */
 @media (max-width: 768px) {
   body { overflow-x: hidden; }
 
@@ -1461,13 +1460,39 @@ footer {
   .nav-logo-sub { display: none; }
   .nav-cta { display: none; }
 
-  #hero { display: flex; flex-direction: column; justify-content: center; padding: 5.75rem 1.5rem 0.25rem; position: relative; overflow: hidden; }
+  #hero { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding: 5.75rem 1.5rem 0; 
+    min-height: unset !important;
+    height: auto !important;
+    position: relative; 
+    overflow: hidden; 
+  }
   .hero-glow { display: none; }
-  .hero-content { flex-direction: column; gap: 2.5rem; }
+  .hero-content { 
+    flex-direction: column; 
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
   .hero-h1 { font-size: 32px; line-height: 1.05; }
   .hero-desc { font-size: 15px; }
-  .hero-right { width: 100%; }
-  .hero-btns { margin-bottom: 2rem; }
+  .hero-right {
+    flex: none !important;
+    flex-basis: auto !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-bottom: 1.5rem; /* Add space below image */
+  }
+
+  .hero-right video {
+    height: 180px !important;
+    width: 100%;
+    object-fit: cover;
+  }
+  .hero-btns { margin-bottom: 0.5rem; }
 
   .trust-strip { gap: 1rem; padding: 1rem 1.5rem; }
   .trust-item { font-size: 11px; }
@@ -1527,9 +1552,10 @@ footer {
 
   .pain-points h3 { white-space: normal; font-size: 24px; line-height: 1.2; }
   .pain-highlight { font-size: 28px; line-height: 1.25; }
-  .pain-points { padding-left: 1.5rem; padding-right: 1.5rem; overflow: hidden; }
+  .pain-points { padding-top: 0; margin-top: 0; }
   .pain-points p, .pain-highlight { max-width: 100%; white-space: normal !important; word-break: normal; overflow-wrap: break-word; }
 }
+
 .step-chevron {
   font-size: 10px;
   color: var(--blue-bright);
